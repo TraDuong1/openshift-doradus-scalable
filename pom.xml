@@ -35,7 +35,12 @@
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 	</properties>
-	<dependencies>   
+	<dependencies>  
+		<dependency>
+			<groupId>com.dell.doradus</groupId>
+			<artifactId>doradus-server</artifactId>
+			<version>2.1.1</version>
+		</dependency> 
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
