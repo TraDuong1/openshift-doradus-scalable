@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>scalabledoradus</groupId>
-	<artifactId>scalabledoradus</artifactId>
+	<groupId>testapp</groupId>
+	<artifactId>testapp</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
-	<name>scalabledoradus</name>
+	<name>testapp</name>
 	<repositories>
 		<repository>
 			<id>eap</id>
@@ -32,21 +32,41 @@
 	</pluginRepositories>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
-	<dependencies>  
+	<dependencies>
 		<dependency>
-			<groupId>com.dell.doradus</groupId>
-			<artifactId>doradus-server</artifactId>
-			<version>2.1.1</version>
-		</dependency> 
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>3.0.2.RELEASE</version>
+		</dependency>
+		<dependency>
+	    	<groupId>org.jboss.resteasy</groupId>
+	    	<artifactId>resteasy-client</artifactId>
+	    	<version>3.0.10.Final</version>
+		</dependency>		
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.2-1003-jdbc4</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.25</version>
+		</dependency>     
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.dell.doradus</groupId>
+			<artifactId>doradus-server</artifactId>
+			<version>2.1.1</version>
+		</dependency>			
 	</dependencies>
 	<profiles>
 		<profile>
@@ -59,7 +79,7 @@
 			<!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
 			<id>openshift</id>
 			<build>
-				<finalName>scalabledoradus</finalName>
+				<finalName>testapp</finalName>
 				<plugins>
 					<plugin>
 						<artifactId>maven-war-plugin</artifactId>
