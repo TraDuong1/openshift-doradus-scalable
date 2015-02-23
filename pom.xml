@@ -64,10 +64,22 @@
 		</dependency>
 		<dependency>
 			<groupId>com.dell.doradus</groupId>
-			<artifactId>doradus-server</artifactId>
+			<artifactId>doradus-server</artifactId>			
 			<version>2.1.1</version>
-			<optional>true</optional>
-		</dependency>			
+<!-- 			 <exclusions> -->
+<!-- 				<exclusion> -->
+<!--           			<groupId>org.eclipse.jetty</groupId>  -->
+<!--           			<artifactId>apache-jsp</artifactId> -->
+<!--         		</exclusion> -->
+<!--       		</exclusions>  		 -->
+		</dependency>		
+<dependency>
+  <groupId>com.dell.doradus</groupId>
+  <artifactId>doradus-server</artifactId>
+  <version>2.1.1</version>
+  <scope>system</scope>
+  <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/doradus-server-2.1.1.jar</systemPath>
+</dependency>			
 	</dependencies>
 	<profiles>
 		<profile>
