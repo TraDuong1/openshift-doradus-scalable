@@ -17,7 +17,7 @@ import com.dell.doradus.service.spider.SpiderService;
 /**
  * Servlet implementation class DoradusServlet
  */
-@WebServlet(name = "DoradusRestServlet", urlPatterns = {"/*"})
+@WebServlet(name = "DoradusRestServlet", urlPatterns = {"/api/*"})
 public class DoradusRestServlet extends RESTServlet {
 	private static final long serialVersionUID = 1L;
        
