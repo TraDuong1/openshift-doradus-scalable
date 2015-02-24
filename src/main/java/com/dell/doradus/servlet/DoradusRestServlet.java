@@ -17,7 +17,7 @@ import com.dell.doradus.service.spider.SpiderService;
 /**
  * Servlet implementation class DoradusServlet
  */
-@WebServlet(name = "DoradusRestServlet", urlPatterns = {"/api/*"})
+@WebServlet(name = "DoradusRestServlet", urlPatterns = {"/*"})
 public class DoradusRestServlet extends RESTServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -37,6 +37,7 @@ public class DoradusRestServlet extends RESTServlet {
     	System.out.println("getRequestURI: "+ request.getRequestURI());        	
     	System.out.println("getMethod: "+ request.getMethod());         	
     	System.out.println("getQueryString: "+ request.getQueryString());
+
        	super.doGet(request, response);
 	}
 
@@ -48,12 +49,16 @@ public class DoradusRestServlet extends RESTServlet {
 	}
 	@Override
 	public void init(ServletConfig config)  {
-
-		final String[] args = new String[] { "-dbhost", "10.228.23.117", "-dbport", "9042", "-dbuser", "SuperDory", "-dbpassword", "Alpha1"};
+    	System.out.println("DORADUS_HOST: " + System.getenv("DORADUS_HOST"));
+    	System.out.println("DORADUS_PORT: " + System.getenv("DORADUS_PORT"));
+       	System.out.println("DORADUS_DB_USER: " + System.getenv("DORADUS_DB_USER"));
+      	System.out.println("DORADUS_DB_PASSWORD: " + System.getenv("DORADUS_DB_PASSWORD"));
+      	        	
+		final String[] args = new String[] { "-dbhost", System.getenv("DORADUS_HOST"), "-dbport", System.getenv("DORADUS_PORT"), "-dbuser", System.getenv("DORADUS_DB_USER"), "-dbpassword", System.getenv("DORADUS_DB_PASSWORD")};
 		//final String[] args = new String[] { "-dbhost", "localhost", "-dbport", "9160"};
 
 		DoradusServer.startEmbedded(args, SERVICES);
-		System.out.println("doradus started... ");	
+		System.out.println("Doradus started... ");	
 	}
 	
 	private static final String[] SERVICES = new String[]{
