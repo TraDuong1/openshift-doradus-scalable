@@ -58,12 +58,16 @@ public class DoradusRestServlet extends RESTServlet {
       	System.out.println("doradus.log location " + System.getenv("OPENSHIFT_LOG_DIR")+"doradus.log");
       	
       	org.apache.log4j.Logger root = org.apache.log4j.Logger.getRootLogger();
-      	org.apache.log4j.FileAppender appender = (org.apache.log4j.FileAppender)root.getAppender("file");
-     	System.out.println("existing fileAppender " + appender.getFile());
+      	//root.removeAppender("file");
+      	
+      	org.apache.log4j.RollingFileAppender appender = (org.apache.log4j.RollingFileAppender)root.getAppender("file");
+     	System.out.println("existing RollingFileAppender " + appender);
+
+      	System.out.println("existing RollingFileAppender name " + appender.getFile());
 
       	appender.setFile(System.getenv("OPENSHIFT_LOG_DIR")+"doradus.log");
 
-      	System.out.println("new fileAppender " + appender.getFile());
+      	System.out.println("new RollingFileAppender name " + appender.getFile());
      			
 		final String[] args = new String[] { "-dbhost", System.getenv("DORADUS_HOST"), "-dbport", System.getenv("DORADUS_PORT"), "-dbuser", System.getenv("DORADUS_DB_USER"), "-dbpassword", System.getenv("DORADUS_DB_PASSWORD")};
 		//final String[] args = new String[] { "-dbhost", "10.228.23.117", "-dbport", "9042", "-dbuser", "SuperDory", "-dbpassword", "Alpha1"};
