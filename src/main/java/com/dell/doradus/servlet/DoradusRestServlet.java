@@ -58,16 +58,25 @@ public class DoradusRestServlet extends RESTServlet {
       	System.out.println("doradus.log location " + System.getenv("OPENSHIFT_LOG_DIR")+"doradus.log");
       	
       	org.apache.log4j.Logger root = org.apache.log4j.Logger.getRootLogger();
-      	//root.removeAppender("file");
+      	org.apache.log4j.RollingFileAppender existingAppender = (org.apache.log4j.RollingFileAppender)root.getAppender("file");
+      	 
+      	root.removeAppender("file");
       	
       	org.apache.log4j.RollingFileAppender appender = (org.apache.log4j.RollingFileAppender)root.getAppender("file");
-     	System.out.println("existing RollingFileAppender " + appender);
+     	System.out.println("after removeing RollingFileAppender " + appender);
 
-      	System.out.println("existing RollingFileAppender name " + appender.getFile());
-
-      	appender.setFile(System.getenv("OPENSHIFT_LOG_DIR")+"doradus.log");
-
-      	System.out.println("new RollingFileAppender name " + appender.getFile());
+     	org.apache.log4j.RollingFileAppender newFileAppender = new org.apache.log4j.RollingFileAppender();
+   
+     	newFileAppender.setFile(System.getenv("OPENSHIFT_LOG_DIR")+"doradus.log");
+     	newFileAppender.setMaxBackupIndex(existingAppender.getMaxBackupIndex());
+    	newFileAppender.setMaximumFileSize(existingAppender.getMaximumFileSize());	
+     	
+      	root.addAppender(newFileAppender);
+      	
+       	appender = (org.apache.log4j.RollingFileAppender)root.getAppender("file");
+     	System.out.println("after adding RollingFileAppender " + appender);
+     	System.out.println("new RollingFileAppender name " + appender.getFile());
+     	    
      			
 		final String[] args = new String[] { "-dbhost", System.getenv("DORADUS_HOST"), "-dbport", System.getenv("DORADUS_PORT"), "-dbuser", System.getenv("DORADUS_DB_USER"), "-dbpassword", System.getenv("DORADUS_DB_PASSWORD")};
 		//final String[] args = new String[] { "-dbhost", "10.228.23.117", "-dbport", "9042", "-dbuser", "SuperDory", "-dbpassword", "Alpha1"};
