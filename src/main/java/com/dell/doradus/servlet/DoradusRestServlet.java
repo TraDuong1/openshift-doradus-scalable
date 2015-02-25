@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.PropertyConfigurator;
-
 import com.dell.doradus.core.DoradusServer;
 import com.dell.doradus.service.olap.OLAPService;
 import com.dell.doradus.service.rest.RESTServlet;
@@ -58,7 +56,6 @@ public class DoradusRestServlet extends RESTServlet {
       	System.out.println("DORADUS_DB_PASSWORD: " + System.getenv("DORADUS_DB_PASSWORD"));
       	System.out.println("OPENSHIFT_LOG_DIR " + System.getenv("OPENSHIFT_LOG_DIR"));
       	System.out.println("doradus.log location " + System.getenv("OPENSHIFT_LOG_DIR")+"doradus.log");
-      	//PropertyConfigurator.configure(System.getenv("OPENSHIFT_LOG_DIR")+"doradus.log");
       	
 		final String[] args = new String[] { "-dbhost", System.getenv("DORADUS_HOST"), "-dbport", System.getenv("DORADUS_PORT"), "-dbuser", System.getenv("DORADUS_DB_USER"), "-dbpassword", System.getenv("DORADUS_DB_PASSWORD")};
 		//final String[] args = new String[] { "-dbhost", "10.228.23.117", "-dbport", "9042", "-dbuser", "SuperDory", "-dbpassword", "Alpha1"};
