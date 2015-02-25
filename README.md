@@ -20,21 +20,14 @@ Add this upstream repo
 
 Set the Doradus environment variables
    
+    rhc set-env JAVA_OPTS_EXT="-Ddoradus.log.dir=../app-root/logs/“
     rhc env set DORADUS_HOST=<DORADUS_HOST> DORADUS_PORT=<DORADUS_PORT>
+rhc env set DORADUS_HOST=10.228.23.117 DORADUS_PORT=1123 DORADUS_DB_USER=SuperDory DORADUS_DB_PASSWORD=Alpha1
 
 Then push the repo upstream
 
     git push
 
-There are 2 implementations using REST client APIs for testing
-
-    * Using JBoss RestEasy REST client API by adding this maven dependency in your maven project
-
-	<dependency>
-	    	<groupId>org.jboss.resteasy</groupId>
-	    	<artifactId>resteasy-client</artifactId>
-	    	<version>3.0.10.Final</version>
-	</dependency>
 
     Verify
     http://testapp-$yournamespace.$youropenshiftserver/resteasy
