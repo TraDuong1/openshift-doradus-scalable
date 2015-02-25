@@ -63,8 +63,8 @@ public class DoradusRestServlet extends RESTServlet {
     	 
       	root.removeAppender("file");
       	
-      	existingAppender  = (org.apache.log4j.RollingFileAppender)root.getAppender("file");
-     	System.out.println("after removeing RollingFileAppender " + existingAppender);
+      	org.apache.log4j.RollingFileAppender remAppender  = (org.apache.log4j.RollingFileAppender)root.getAppender("file");
+     	System.out.println("after removeing RollingFileAppender " + remAppender);
 
      	org.apache.log4j.RollingFileAppender newFileAppender = new org.apache.log4j.RollingFileAppender();
    
