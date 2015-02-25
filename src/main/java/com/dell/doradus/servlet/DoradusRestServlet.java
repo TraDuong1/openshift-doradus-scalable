@@ -57,6 +57,7 @@ public class DoradusRestServlet extends RESTServlet {
        	System.out.println("DORADUS_DB_USER: " + System.getenv("DORADUS_DB_USER"));
       	System.out.println("DORADUS_DB_PASSWORD: " + System.getenv("DORADUS_DB_PASSWORD"));
       	System.out.println("OPENSHIFT_LOG_DIR " + System.getenv("OPENSHIFT_LOG_DIR"));
+      	
       	System.out.println("doradus.log.dir " + System.getProperty("doradus.log.dir"));
       	
     			
