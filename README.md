@@ -20,7 +20,7 @@ Pull the code
 
 Set the Doradus environment variables
 
-	to config the proper location of Doradus log file which is recommended for all application logs file in Openshift  
+	to config the proper location of Doradus log file to the same location that is recommended for all application logs file in Openshift  
     $rhc set-env JAVA_OPTS_EXT="-Ddoradus.log.dir=../app-root/logs"
  
  	to tell where the Cassandra cluster/node can be reached and security credentials to access it 
@@ -39,5 +39,5 @@ Tail the logs
 	$rhc tail -a doradus
 	
 	tail specific log file such as doradus.log
-	$rhc tail -f app-root/logs/doradus.log    
+	$rhc tail -f app-root/logs/doradus.log -a doradus   
 
