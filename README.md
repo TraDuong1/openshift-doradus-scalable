@@ -12,7 +12,7 @@ Create Tomcat application
 
     rhc app create doradus jbossews-2.0 -g dev-small
 
-Add this upstream repo
+Pull the code
 
     $cd doradus
     $git remote add upstream https://github.com/TraDuong1/openshift-doradus-scalable
@@ -24,21 +24,20 @@ Set the Doradus environment variables
     $rhc set-env JAVA_OPTS_EXT="-Ddoradus.log.dir=../app-root/logs"
  
  	to tell where the Cassandra cluster/node can be reached and security credentials to access it 
- 	For ex: $rhc env set CASSANDRA_NODE_IP=10.228.23.117 CASSANDRA_NODE_PORT=9042 CASSANDRA_SUPERUSER_NAME=SuperDory CASSANDRA_SUPERUSER_PW=Alpha1
-	
+ 	For ex: $rhc env set CASSANDRA_NODE_IP=10.228.23.117 CASSANDRA_NODE_PORT=9042 CASSANDRA_SUPERUSER_NAME=SuperDory CASSANDRA_SUPERUSER_PW=Alpha1	
 
 Then push the repo upstream
 
     $git push
-
+	
+Verify Doradus REST API
+    http://doradus-$yournamespace.$youropenshiftserver/api_/applications
+      
 Tail the logs
 
 	tail all log files (HA log, jboss log and doradus log files) under the same OPENSHIFT_LOG_DIR directory for the primary web gear 
 	$rhc tail -a doradus
 	
 	tail specific log file such as doradus.log
-	$rhc tail -f app-root/logs/doradus.log
-	
-Verify Doradus REST API
-    http://doradus-$yournamespace.$youropenshiftserver/api_/applications
+	$rhc tail -f app-root/logs/doradus.log    
 
