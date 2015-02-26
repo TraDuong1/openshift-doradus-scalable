@@ -14,7 +14,7 @@ Create Tomcat application
 
 Add this upstream repo
 
-    cd testapp
+    cd doradus
     git remote add upstream https://github.com/TraDuong1/openshift-doradus-scalable
     git pull -s recursive -X theirs upstream master
 
@@ -33,9 +33,12 @@ Then push the repo upstream
 
 Tail the logs
 
-	Tail all application log files including Doradus logs  of the application
+	tail all log files (HA log, jboss log and doradus log files) under the same OPENSHIFT_LOG_DIR directory for the primary web gear 
 	rhc tail -a doradus
 	
-Verify
+	tail specific log file such as doradus.log
+	rhc tail -f app-root/logs/doradus.log
+	
+Launch
     http://doradus-$yournamespace.$youropenshiftserver/api_/applications
 
