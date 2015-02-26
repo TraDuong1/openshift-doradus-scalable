@@ -1,5 +1,5 @@
-Scalable Doradus Webapp inside Openshift
-===========================================
+Scalable Doradus Webapp in Openshift
+====================================
 
 OpenShift Tomcat Webapp to host Doradus to take advantage of Openshift auto-scaling of web gear. 
 
