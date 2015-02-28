@@ -16,10 +16,10 @@ public class DoradusServletContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {  
-		final String[] args = new String[] { "-dbhost", "localhost", "-dbport", "9160"};	
+		//final String[] args = new String[] { "-dbhost", "localhost", "-dbport", "9160"};	
 		
 		//start Doradus embedded server		
-		//final String[] args = new String[] { "-dbhost", System.getenv("CASSANDRA_NODE_IP"), "-dbport", System.getenv("CASSANDRA_NODE_PORT"), "-dbuser", System.getenv("CASSANDRA_SUPERUSER_NAME"), "-dbpassword", System.getenv("CASSANDRA_SUPERUSER_PW")};
+		final String[] args = new String[] { "-dbhost", System.getenv("CASSANDRA_NODE_IP"), "-dbport", System.getenv("CASSANDRA_NODE_PORT"), "-dbuser", System.getenv("CASSANDRA_SUPERUSER_NAME"), "-dbpassword", System.getenv("CASSANDRA_SUPERUSER_PW")};
 		
 		DoradusServer.startEmbedded(args, SERVICES);		
 	}
