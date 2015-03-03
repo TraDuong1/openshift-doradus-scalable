@@ -10,7 +10,7 @@ Create an account at https://www.openshift.com
 
 Create Tomcat application 
 
-    rhc app create doradus jbossews-2.0 -g dev-small
+    rhc app create doradus jbossews-2.0 -s -g dev-small
 
 Pull the code
 
@@ -31,7 +31,7 @@ Then push the repo upstream
     $git push
 	
 Verify Doradus REST API
-    http://doradus-$yournamespace.$youropenshiftserver/api_/applications
+    #####http://doradus-$yournamespace.$youropenshiftserver/api_/applications
       
 Tail the logs
 
