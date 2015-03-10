@@ -32,7 +32,7 @@ Then push the repo upstream
 	
 Verify Doradus REST API
 
-    #####http://doradus-$yournamespace.$youropenshiftserver/_api_/applications
+    http://doradus-$yournamespace.$youropenshiftserver/_api_/applications
       
 Tail the logs
 
