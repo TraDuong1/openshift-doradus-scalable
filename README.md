@@ -33,7 +33,8 @@ Then push the repo upstream
 Verify Doradus REST API
 
     http://doradus-$yournamespace.$youropenshiftserver/_api_/applications
-    For ex: [Try this link](http://doradus-tra.us.platform.dell.com/_api/_applications)
+    
+    [Try this link](http://doradus-tra.us.platform.dell.com/_api/_applications)
       
 Tail the logs
 
