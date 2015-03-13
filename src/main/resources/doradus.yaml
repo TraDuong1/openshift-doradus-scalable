@@ -37,7 +37,7 @@
 # tenant and provide credentials for that tenant. Non-tenant commands (system commands) do not
 # specify a tenant and must be validated using system credentials. Note that multi-tenant mode
 # requires the use of CQL, hence "use_cql" must be true. Default: false
-multitenant_mode: true
+multitenant_mode: false
 
 # disable_default_keyspace: When multitenant_mode is true, non-system commands that do not identify
 # a specific tenant are sent to the default tenant (see "keyspace" parameter). Requests to the
@@ -80,6 +80,9 @@ default_services:
     - com.dell.doradus.service.schema.SchemaService
     - com.dell.doradus.service.taskmanager.TaskManagerService
 
+load_webserver: false
+#webserver_class: com.dell.doradus.server.JettyWebServer
+
 # storage_services: This parameter defines which storage service modules are started and therefore
 # available to applications. Most Doradus instances will use a single storage service, although
 # multiple services can be used. If multiple storage services are listed, the first one becomes the
@@ -113,7 +116,7 @@ keyspace: 'Doradus'
 ks_defaults:
     - strategy_class: SimpleStrategy
     - strategy_options:
-        - replication_factor: "2"   # enclose this value in quotes
+        - replication_factor: "1"   # enclose this value in quotes
     - durable_writes: true
     
 ########## Cassandra ColumnFamily Parameters
@@ -144,7 +147,7 @@ dbhost: localhost
 # use_cql: If this is false, the Thrift API is used for communicating with Cassandra. If true the
 # CQL API is used. Note that Thrift and CQL use different port numbers (see dbport below).
 # Default: true
-use_cql: true
+use_cql: false
 
 # dbport: The port number to use for Cassandra database connections. It must be the same on all
 # nodes listed in "dbhost". For Thrift, the default port normally 9160; for CQL, it is 9042.
