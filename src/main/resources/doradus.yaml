@@ -37,7 +37,7 @@
 # tenant and provide credentials for that tenant. Non-tenant commands (system commands) do not
 # specify a tenant and must be validated using system credentials. Note that multi-tenant mode
 # requires the use of CQL, hence "use_cql" must be true. Default: false
-multitenant_mode: false
+multitenant_mode: true
 
 # disable_default_keyspace: When multitenant_mode is true, non-system commands that do not identify
 # a specific tenant are sent to the default tenant (see "keyspace" parameter). Requests to the
@@ -116,7 +116,7 @@ keyspace: 'Doradus'
 ks_defaults:
     - strategy_class: SimpleStrategy
     - strategy_options:
-        - replication_factor: "1"   # enclose this value in quotes
+        - replication_factor: "2"   # enclose this value in quotes
     - durable_writes: true
     
 ########## Cassandra ColumnFamily Parameters
@@ -147,7 +147,7 @@ dbhost: localhost
 # use_cql: If this is false, the Thrift API is used for communicating with Cassandra. If true the
 # CQL API is used. Note that Thrift and CQL use different port numbers (see dbport below).
 # Default: true
-use_cql: false
+use_cql: true
 
 # dbport: The port number to use for Cassandra database connections. It must be the same on all
 # nodes listed in "dbhost". For Thrift, the default port normally 9160; for CQL, it is 9042.
