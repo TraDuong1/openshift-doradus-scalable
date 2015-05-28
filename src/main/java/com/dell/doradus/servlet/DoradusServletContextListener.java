@@ -9,7 +9,7 @@ import com.dell.doradus.service.olap.OLAPService;
 import com.dell.doradus.service.spider.SpiderService;
 
 /**
- * Registering ServletContextListener
+ * Registering ServletContextListener to start Doradus server before the Doradus Tomcat application is started
  */
 @WebListener
 public class DoradusServletContextListener implements ServletContextListener {
