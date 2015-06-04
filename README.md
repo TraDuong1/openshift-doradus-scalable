@@ -8,7 +8,7 @@ Running on OpenShift
 
 Create an account at https://www.openshift.com
 
-Create Tomcat 7  application 
+Create Tomcat 7 application 
 
     rhc app create doradus jbossews-2.0 -s -g dev-small
 
