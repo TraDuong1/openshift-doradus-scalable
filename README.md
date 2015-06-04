@@ -6,7 +6,7 @@ Using OpenShift Tomcat Webapp to host Doradus to take advantage of Openshift aut
 Running on OpenShift
 ----------------------------
 
-Create an account at https://www.openshift.com
+::Create an account at https://www.openshift.com
 
 Create Tomcat 7 application 
 
