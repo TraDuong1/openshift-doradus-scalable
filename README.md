@@ -1,6 +1,5 @@
 Scalable Doradus Webapp in Openshift
 ====================================
-
 Using OpenShift Tomcat Webapp to host Doradus to take advantage of Openshift auto-scaling of web gear. 
 
 Running on OpenShift
